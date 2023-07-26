@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
     def index
-        # @room = Room.new
+        @room = Room.new
         @current_user = current_user
         redirect_to '/signin' unless @current_user
         @rooms = Room.public_rooms
