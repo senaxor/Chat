@@ -10,5 +10,9 @@ Rails.application.routes.draw do
     resources :messages
   end
   resources :users
+  resources :developers do
+    get :console, on: :collection
+  end
+  
   root 'rooms#index'
 end
