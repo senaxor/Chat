@@ -1,5 +1,10 @@
+<div id="sign_in_wrapper_parent">
 <%= form_for (:session) do |f| %>
-  <%= f.label :username, 'Enter your username' %>
-  <%= f.text_field :username, autocomplete: 'off' %>
+<div id="sign_in_wrapper"> 
+  <h2>Sign in</h2>
+  <%= f.text_field :username, autocomplete: 'off',placeholder:"username" %>
+  <%= f.text_field :password, autocomplete: 'off',placeholder:"password" %>
   <%= f.submit 'Sign in' %>
+</div>
 <% end %>
+</div>
