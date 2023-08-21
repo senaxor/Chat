@@ -13,8 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+html, body, #messages {
+    overflow-x: hidden;
+}
+
+body {
+    background-color: #343a40!important;
+}
+
 * {
     font-family: 'Poppins', sans-serif;
+    outline: none !important;
 }
 
 .name span{
@@ -37,16 +47,20 @@
     color: #eee;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
 }
 
-#rooms {
+.sidebar_username {
+    color: #918EF4;
+}
+
+#rooms, #users {
     background-color: rgba(0, 0, 0, 0.3);
     padding: 1rem;
     border-radius: 5px;
 }
 
-.sidebar #rooms *{
+.sidebar #rooms *, .sidebar #users * {
     color: #918EF4;
 }
 
@@ -64,6 +78,77 @@
 #messages {
     animation: fadein 700ms linear 0s 1;
 }
+
+#chat-text {
+    background-color: #555 !important;
+    color: #eee;
+}
+.submit-btn {
+    background-color: #918EF4 !important;
+}
+.message_form_box {
+    display: flex;
+    width: 100%;
+}
+
+.signout_btn {
+    border: none;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5px;
+    border-radius: 5px;
+    color: #918EF4;
+}
+
+.new_room_form_parent_container {
+    margin-top: 2rem;
+}
+
+.new_room_form_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.new_room_form_container input {
+    background-color: transparent;
+    font-size: 15px;
+}
+
+.new_room_form_container input[type=text] {
+    border: 2px solid #918EF4;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: .4rem;
+    color: #eee !important;
+}
+
+.new_room_form_container input[type=text]::placeholder {
+    color: #918EF4;
+}
+
+.new_room_form_container input[type=text]:focus {
+    background-color: transparent;
+    color: #eee;
+}
+
+.new_room_form_container input[type=submit] {
+    border: none;
+    padding: .4rem;
+    background-color: #918EF4;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: left;
+    color: #222 !important;
+}
+
+.actions {
+
+}
+
+
+
+
+
+
 
 @keyframes fadein {
     from { opacity: 0; }

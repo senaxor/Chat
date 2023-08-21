@@ -1,24 +1,30 @@
 <div class="row">
   <div class="col-md-2 sidebar">
-    <h5> Hi <%= @current_user.username %> </h5>
-    <h4> Users </h4>
+    <h5>Welcome, <span class="sidebar_username"><%= @current_user.username %></span> </h5>
     <div>
+      <h4>Users</h4>
       <%= turbo_stream_from "users" %>
       <div id="users">
         <%= render @users %>
       </div>
     </div>
-    <h4> Rooms </h4>
-    <%= render partial: "layouts/new_room_form" %>
-    <div>
+    <div class="rooms_container">
       <%= turbo_stream_from "rooms" %>
+      <h4>Rooms</h4>
       <div id="rooms">
         <%= render @rooms %>
+        <div class="new_room_form_parent_container">
+          <%= render partial: "layouts/new_room_form" %>
+        </div>
       </div>
+    </div>
+    <div class="actions">
+      <h4>Actions</h4>
+      <%= button_to 'Sign Out', signout_path,  :method => :delete, class: "signout_btn" %>
     </div>
   </div>
 
-  <div class="col-md-10 bg-dark text-light">
+  <div class="col-md-10 bg-dark text-light" id="messages">
     <%if @single_room %>
       <h4 class="text-center" id="room-name"> <span><%= @single_room.name %></span> </h4>
     <%= turbo_stream_from @single_room %>
@@ -28,5 +34,4 @@
     <%= render partial: "layouts/new_message_form" %>
     <% end %>
   </div>
-  <%= button_to 'Sign Out', signout_path,  :method => :delete %>
 </div>
