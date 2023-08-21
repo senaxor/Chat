@@ -16,6 +16,6 @@ class UsersController < ApplicationController
       private
       def get_name(user1, user2)
         users = [user1, user2].sort
-        "private_#{users[0].username}_#{users[1].username}"
+        "private #{users[0].username} and #{users[1].username}"
       end
 end
